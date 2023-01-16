@@ -1,0 +1,57 @@
+[コルーチンを使い，{}内の処理をnumフレーム後に実行する]
+using System;
+StartCoroutine(DelayMethod(num, () =>{
+
+}));
+IEnumerator DelayMethod(int delayFrameCount, Action action)
+{
+    for (var i = 0; i < delayFrameCount; i++)
+    {
+        yield return null;
+    }
+    action();
+}
+
+[deltaに，1フレームの時間を代入し，一定時間事の処理]
+delta += Time.deltaTime;
+if(span < delta){}
+
+[時間停止,解除]
+Time.timeScale = 0f;
+Time.timeScale = 1f;
+
+[transformを使った処理．拡縮，強制移動，移動]
+transform.localScale = Vector2 or 3;
+transform.position = Vector2 or 3;
+transform.translate = Vector2 or 3
+
+[キー入力]
+if(Input.GetKey(KeyCode.A)){}
+
+[色変換]
+GameObject.GetComponent<Image>().color = new Color(1f, 1f, 1f, 1f);
+[UIを削ったり]
+GameObject.GetComponent<Image>().fillAmount = num;
+
+[クリックした座標(スクリーン座標)をワールド座標に]
+Vector2 or vector3 = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+[isTriggerを変化]
+GetComponent<Collider2D>().isTrigger = false;
+
+[物理剛体の速度変化，押し出し，重力変化]
+rigid2D.velocity = Vector2;
+rigid2D.AddForce(Vector2);
+rigid2D.gravityScale = num;
+
+[Collosion]
+void OnCollisionEnter2D(Collision2D collision)
+{
+  if (collision.gameObject.name == " "){}
+}
+[Collision OnTrigger]
+void OnTriggerEnter2D(Collider2D other)
+{
+  if (other.name == "player"){}
+  else if(other.gameObject.tag == "floor"){}
+}
