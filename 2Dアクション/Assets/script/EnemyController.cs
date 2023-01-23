@@ -9,7 +9,9 @@ public class EnemyController : MonoBehaviour
     Rigidbody2D rigid2D;
     public PlayerController playercontroller;
     public EnemyAttackBullet enemyattackbullet;
+
     public GameObject enemyHPGauge;
+    public GameObject DieParticle;
 
     public float damageReceived;
     Vector2 playerPos;
@@ -42,7 +44,6 @@ public class EnemyController : MonoBehaviour
         float dist = Vector3.Distance(transform.position, playerPos); //プレイヤーと敵の距離
         if (dist < 6 && !At_flag) { this.delta_jump += Time.deltaTime; Debug.Log("ジャンプクール"); } //近くにいる時，ジャンプ攻撃のクールタイムを減らす
         if (5 < dist && dist < 10 && !At_flag) { this.delta_bullet += Time.deltaTime; Debug.Log("弾クール"); } // 遠くにいるとき，弾攻撃のクールタイムを減らす．
-        Debug.Log(dist);
         //Debug.Log("接敵");
 
         if (this.delta_jump > this.span_jump)
@@ -95,7 +96,12 @@ public class EnemyController : MonoBehaviour
         damageReceived = 0;
         Debug.Log(nowHP / defaultHP);
         enemyHPGauge.transform.position = Camera.main.WorldToScreenPoint(new Vector2(transform.position.x, transform.position.y+1));
-        if (nowHP <= 0) Destroy(gameObject);
+        if (nowHP <= 0)
+        {
+            GameObject particle = Instantiate(DieParticle);
+            particle.transform.position = transform.position;
+            Destroy(gameObject);
+        }
     }
     void OnTriggerEnter2D(Collider2D other)
     {

@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour
     public GameObject cooltime;
     public GameObject choice1;
     public GameObject choice3;
-    public GameObject worpmark;
+    //public GameObject worpmark;
     public GameObject go_dashstar;
     int jumpCount = 1;
 
@@ -160,7 +160,7 @@ public class PlayerController : MonoBehaviour
                             canMagicAttack = false;
                             GameObject go = Instantiate(MagicAttackPre);
                             go.transform.position = new Vector2(transform.position.x + key * 2, transform.position.y);
-                            go.GetComponent<Rigidbody2D>().velocity = key * new Vector2(5, 0);
+                            go.GetComponent<Rigidbody2D>().velocity = key * new Vector2(10, 0);
                             StartCoroutine(DelayMethod(magicCooltime, () =>
                             {
                                 canMagicAttack = true;
@@ -185,28 +185,19 @@ public class PlayerController : MonoBehaviour
                     animator.SetTrigger("stay");
                     ini();
                     break;
-
                 case Cons.walkleft:
-                    key = -1;
-                    walkSys();
+                    key = -1;walkSys();
                     break;
-
                 case Cons.walkright:
-                    key = 1;
-                    walkSys();
+                    key = 1;walkSys();
                     break;
-
                 case Cons.jump:
                     OnGround = false;
                     break;
-
                 case Cons.dash: //　dash
-                                //地面でのダッシュの際に，ワープ開始のエフェクトが追いつかず，終了のタイミングで出る
-
-
+                                //地面でのダッシュの際に，ワープ開始のエフェクトが追いつかず，終了のタイミングで出
                     int R = 1;
                     Vector2 dashVec = new Vector2((float)(R * key), (float)0);
-
                     if (!OnGround)
                     {
 
@@ -337,6 +328,3 @@ public class PlayerController : MonoBehaviour
         if (speedx < this.maxWalkSpeed && motionflag) this.rigid2D.AddForce(transform.right * key * this.walkForce);
     }
 }
-/*背景素材七三ゆきのアトリエ様
-https://nanamiyuki.com/
-*/

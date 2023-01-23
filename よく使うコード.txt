@@ -12,6 +12,22 @@ IEnumerator DelayMethod(int delayFrameCount, Action action)
     action();
 }
 
+StartCoroutine(RepeatMethod(num,num, () =>{
+
+}));
+IEnumerator RepeatMethod(int delayFrameCount,int RepeatCount, Action action)
+{
+    action();
+    int count = 0;
+    for(count;RepeatCount > count;count++){
+      for (var i = 0; i < delayFrameCount; i++)
+      {
+          yield return null;
+       }
+      action();
+    }
+}
+
 [deltaに，1フレームの時間を代入し，一定時間事の処理]
 delta += Time.deltaTime;
 if(span < delta){}
