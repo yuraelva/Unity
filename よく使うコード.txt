@@ -12,14 +12,14 @@ IEnumerator DelayMethod(int delayFrameCount, Action action)
     action();
 }
 
-StartCoroutine(RepeatMethod(num,num, () =>{
+StartCoroutine(RepeatMethod(nƒtƒŒ[ƒ€‚²‚Æ,‰ñ”, () =>{
 
 }));
 IEnumerator RepeatMethod(int delayFrameCount,int RepeatCount, Action action)
 {
     action();
     int count = 0;
-    for(count;RepeatCount > count;count++){
+    for(count = 0;RepeatCount > count;count++){
       for (var i = 0; i < delayFrameCount; i++)
       {
           yield return null;

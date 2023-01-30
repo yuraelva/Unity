@@ -57,6 +57,7 @@
     <Compile Include="Assets\script\EnemyAttackGenerate.cs" />
     <Compile Include="Assets\script\PartucleDestroy.cs" />
     <Compile Include="Assets\script\CameraController.cs" />
+    <Compile Include="Assets\script\SelectImageAnim.cs" />
     <Compile Include="Assets\script\KeyConfig.cs" />
     <Compile Include="Assets\Shared\Scripts\ProximityActivate.cs" />
     <Compile Include="Assets\RainMaker\Demo\DemoScriptStartRainOnSpaceBar.cs" />
@@ -64,6 +65,7 @@
     <Compile Include="Assets\RainMaker\Prefab\RainCollision.cs" />
     <Compile Include="Assets\script\DeleteButton.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
+    <Compile Include="Assets\script\TitleButtonClick.cs" />
     <Compile Include="Assets\RainMaker\Prefab\RainScript2D.cs" />
     <Compile Include="Assets\RainMaker\Prefab\BaseRainScript.cs" />
     <Compile Include="Assets\Shared\Scripts\AdjustTimeScale.cs" />
@@ -71,6 +73,7 @@
     <Compile Include="Assets\script\WorpPlayReverse.cs" />
     <Compile Include="Assets\script\PlayerController.cs" />
     <Compile Include="Assets\script\EnemyController.cs" />
+    <Compile Include="Assets\script\TitleScript.cs" />
     <Compile Include="Assets\Shared\Scripts\SimpleCameraController.cs" />
     <Compile Include="Assets\RainMaker\Demo\DemoScript.cs" />
     <Compile Include="Assets\RainMaker\Prefab\RainScript.cs" />

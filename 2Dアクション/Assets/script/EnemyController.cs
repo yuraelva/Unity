@@ -42,8 +42,8 @@ public class EnemyController : MonoBehaviour
         if (playerPos.x - transform.position.x < 0) Pos_direction = -1;
         else Pos_direction = 1;
         float dist = Vector3.Distance(transform.position, playerPos); //プレイヤーと敵の距離
-        if (dist < 6 && !At_flag) { this.delta_jump += Time.deltaTime; Debug.Log("ジャンプクール"); } //近くにいる時，ジャンプ攻撃のクールタイムを減らす
-        if (5 < dist && dist < 10 && !At_flag) { this.delta_bullet += Time.deltaTime; Debug.Log("弾クール"); } // 遠くにいるとき，弾攻撃のクールタイムを減らす．
+        if (dist < 6 && !At_flag) { this.delta_jump += Time.deltaTime; Debug.Log("ジャンプクールタイム"); } //近くにいる時，ジャンプ攻撃のクールタイムを減らす
+        if (5 < dist && dist < 10 && !At_flag) { this.delta_bullet += Time.deltaTime; Debug.Log("弾クールタイム"); } // 遠くにいるとき，弾攻撃のクールタイムを減らす．
         //Debug.Log("接敵");
 
         if (this.delta_jump > this.span_jump)

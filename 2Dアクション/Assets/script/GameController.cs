@@ -14,8 +14,8 @@ public class GameController : MonoBehaviour
     public PlayerController playercontroller;
     public EnemyController enemycontroller;
     bool iventflag = false;
-    bool event1 = true, event2 = true, event3 = true;
-    float delta = 0, span = 0.03f;
+    bool event1 = true, event2 = true, event3 = true,canTalkClick = true;
+    //float delta = 0, span = 0.03f;
     int event2count = 0;
     Vector2 playerPos;
     // Start is called before the first frame update
@@ -55,8 +55,9 @@ public class GameController : MonoBehaviour
                     EditText("あ,れ,は,...,",5);
                     event2count++;
                 }
-                if (Input.GetMouseButtonDown(0))
+                if (Input.GetMouseButtonDown(0) && canTalkClick)
                 {
+                    canTalkClick = false;
                     if (event2count == 1) EditText("黒,藻,泡,だ,ね,",5);
                     else if (event2count == 2) EditText("距,離,を,と,っ,て,い,れ,ば,安,全,...,だ,っ,た,か,な,",5);
                     else if (event2count == 3) EditText("で,も,ちょ,っ,と,様,子,が,変,な,気,が,す,る,...,",5);
@@ -105,14 +106,13 @@ public class GameController : MonoBehaviour
         Text talkText = talk.GetComponent<Text>();
         talkText.text = "";
         StartCoroutine(RepeatMethod(span, strArray.Length, () => {
-          /*  foreach(var p in strArray)
-            {
-                talkText.text = talkText.text + p;
-            }*/
-
             talkText.text = talkText.text + strArray[i];
-            if(i < strArray.Length -1) i++;
-            
+            if (i < strArray.Length - 1) i++;
+            else
+            {
+                canTalkClick = true;
+                Array.Clear(strArray,0,strArray.Length);
+            }
         }));
         
         //talkText.text = "";

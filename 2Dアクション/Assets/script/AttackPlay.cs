@@ -69,7 +69,7 @@ public class AttackPlay : MonoBehaviour
     }
     public void LoopPointReached(VideoPlayer vp)
     {
-        transform.position = new Vector2(-20, 0);
+        transform.position = new Vector2(-200, 0);
         attackplay.Stop();
         
     }
